@@ -1,5 +1,5 @@
 import { getQueryClient } from '@/core/query-client/utils';
-import { searchParamParser } from '@/core/routing/schemas';
+import { charactersPageSearchParamsSchema } from '@/core/routing/schemas';
 import type { SearchParams } from '@/core/routing/types';
 import { parseSearchParams } from '@/core/routing/utils';
 import { getMetadata } from '@/core/seo/utils';
@@ -9,13 +9,6 @@ import { CharacterSearchForm } from '@/features/characters/components/character-
 import { characterInfiniteListQueryOptions } from '@/features/characters/queries';
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query';
 import type { Metadata } from 'next';
-import { z } from 'zod';
-
-const searchParamsSchema = z
-  .object({
-    keyword: searchParamParser.toSingle(z.string()),
-  })
-  .partial();
 
 export const metadata: Metadata = getMetadata({
   title: 'Characters',
@@ -30,7 +23,7 @@ type CharactersPageProps = {
 export default async function CharactersPage(props: CharactersPageProps) {
   const searchParams = await props.searchParams;
   const { keyword } = parseSearchParams({
-    searchParamsSchema,
+    schema: charactersPageSearchParamsSchema,
     searchParams,
   });
 

@@ -3,13 +3,13 @@ import type { z } from 'zod';
 import type { SearchParams } from './types';
 
 export function parseSearchParams<Output, Def extends z.ZodTypeDef, Input>({
-  searchParamsSchema,
+  schema,
   searchParams,
 }: {
-  searchParamsSchema: z.ZodSchema<Output, Def, Input>;
+  schema: z.ZodSchema<Output, Def, Input>;
   searchParams: SearchParams;
 }) {
-  const result = searchParamsSchema.safeParse(searchParams);
+  const result = schema.safeParse(searchParams);
   if (!result.success) notFound();
   return result.data;
 }

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const searchParamParser = {
+const searchParamParser = {
   toSingle: <Output, Def extends z.ZodTypeDef, Input>(
     valueSchema: z.ZodType<Output, Def, Input>,
   ) => {
@@ -20,3 +20,9 @@ export const searchParamParser = {
     return finalSchema;
   },
 };
+
+export const charactersPageSearchParamsSchema = z
+  .object({
+    keyword: searchParamParser.toSingle(z.string()),
+  })
+  .partial();
