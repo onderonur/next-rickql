@@ -3,6 +3,7 @@ import { graphql, useFragment } from '@/core/gql';
 import { Card, CardImage, CardTitle } from '@/core/ui/components/card';
 import { CharacterEpisodeSummary } from '@/features/characters/components/character-episodes-summary';
 import { CharacterSpecs } from '@/features/characters/components/character-specs';
+import { unstable_ViewTransition as ViewTransition } from 'react';
 
 const CharacterDetails_CharacterFragment = graphql(/* GraphQL */ `
   fragment CharacterDetails_CharacterFragment on Character {
@@ -27,17 +28,19 @@ export function CharacterDetails({ character }: CharacterDetailsProps) {
   );
 
   return (
-    <Card>
-      <CardImage
-        src={characterDetails.image as string}
-        alt={characterDetails.name as string}
-        priority
-        width={300}
-        height={300}
-      />
-      <CardTitle>{characterDetails.name}</CardTitle>
-      <CharacterEpisodeSummary episodes={characterDetails.episodeSummary} />
-      <CharacterSpecs character={characterDetails} />
-    </Card>
+    <ViewTransition name={`character-${characterDetails.id}`}>
+      <Card>
+        <CardImage
+          src={characterDetails.image as string}
+          alt={characterDetails.name as string}
+          priority
+          width={300}
+          height={300}
+        />
+        <CardTitle>{characterDetails.name}</CardTitle>
+        <CharacterEpisodeSummary episodes={characterDetails.episodeSummary} />
+        <CharacterSpecs character={characterDetails} />
+      </Card>
+    </ViewTransition>
   );
 }
