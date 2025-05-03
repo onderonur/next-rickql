@@ -30,8 +30,8 @@ importers:
         specifier: ^5.4.0
         version: 5.4.0(react@19.0.0)
       react-infinite-scroll-hook:
-        specifier: ^5.0.1
-        version: 5.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^6.0.0
+        version: 6.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -2969,17 +2969,17 @@ packages:
     peerDependencies:
       react: '*'
 
-  react-infinite-scroll-hook@5.0.1:
-    resolution: {integrity: sha512-fn6+8BAZLQ9C1fvO5kPicGjDR2WHxK7rP4aaSWuaJkvtoJjYuudGJ9wjgPox7dghKm5Xj9cpKFycM86/wAJ3ig==}
+  react-infinite-scroll-hook@6.0.0:
+    resolution: {integrity: sha512-kg36byj9/YqPS9bv5u3fIUmn800NO6G4cA6d5DcsaBbm7qbMVxT8qy8Po7Xm0dWBJPFEk/g2arcMb9IorQdwsQ==}
     peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
+      react: '>=19'
+      react-dom: '>=19'
 
-  react-intersection-observer-hook@3.0.1:
-    resolution: {integrity: sha512-nehzFUV+jVY49tc9FOm4yJHrmFFtCmsBZKiN1rUUB2675CMBf6kKu1ekuTqvCnmh4XG7RFP3bMyAevfqfV94xw==}
+  react-intersection-observer-hook@4.0.0:
+    resolution: {integrity: sha512-g9hWp741AA6w0RlGiaTtmIuceRd61q7soZmx2keB1OPstLcZffCKpTxWaYA2LVKNYME3B3ZOGwX3iuYyCBLAag==}
     peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
+      react: '>=19'
+      react-dom: '>=19'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -6902,13 +6902,13 @@ snapshots:
     dependencies:
       react: 19.0.0
 
-  react-infinite-scroll-hook@5.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-infinite-scroll-hook@6.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      react-intersection-observer-hook: 3.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-intersection-observer-hook: 4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
-  react-intersection-observer-hook@3.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-intersection-observer-hook@4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
