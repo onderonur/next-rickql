@@ -1,7 +1,7 @@
 import { twJoin } from 'tailwind-merge';
 
 type LoadingProps = {
-  ref: React.Ref<React.ComponentRef<'div'>>;
+  ref?: React.Ref<React.ComponentRef<'div'>>;
 };
 
 export function Loading(props: LoadingProps) {
