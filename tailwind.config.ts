@@ -32,6 +32,7 @@ export default {
           thumb: 'hsl(var(--scrollbar-thumb) / <alpha-value>)',
           'thumb-hover': 'hsl(var(--scrollbar-thumb-hover) / <alpha-value>)',
         },
+        error: 'hsl(var(--error) / <alpha-value>)',
         border: 'hsl(var(--border) / <alpha-value>)',
         ring: 'hsl(var(--ring) / <alpha-value>)',
       },

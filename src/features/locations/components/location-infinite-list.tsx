@@ -7,9 +7,8 @@ import { locationInfiniteListQueryOptions } from '@/features/locations/queries';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 export function LocationInfiniteList() {
-  const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    locationInfiniteListQueryOptions(),
-  );
+  const { data, error, isFetching, hasNextPage, fetchNextPage } =
+    useInfiniteQuery(locationInfiniteListQueryOptions());
 
   if (!data) {
     return null;
@@ -29,8 +28,9 @@ export function LocationInfiniteList() {
         })}
       </List>
       <InfiniteScrollSentry
-        loading={isFetching}
         hasNextPage={hasNextPage}
+        loading={isFetching}
+        error={error}
         onLoadMore={fetchNextPage}
       />
     </>

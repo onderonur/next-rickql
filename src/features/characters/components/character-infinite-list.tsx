@@ -10,9 +10,8 @@ import { useSearchParams } from 'next/navigation';
 export function CharacterInfiniteList() {
   const searchParams = useSearchParams();
   const keyword = searchParams.get('keyword');
-  const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    characterInfiniteListQueryOptions({ keyword }),
-  );
+  const { data, error, isFetching, hasNextPage, fetchNextPage } =
+    useInfiniteQuery(characterInfiniteListQueryOptions({ keyword }));
 
   return (
     <>
@@ -32,8 +31,9 @@ export function CharacterInfiniteList() {
         })}
       </CharacterList>
       <InfiniteScrollSentry
-        loading={isFetching}
         hasNextPage={hasNextPage}
+        loading={isFetching}
+        error={error}
         onLoadMore={fetchNextPage}
       />
     </>

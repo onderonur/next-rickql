@@ -7,9 +7,8 @@ import { episodeInfiniteListQueryOptions } from '@/features/episodes/queries';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 export function EpisodeInfiniteList() {
-  const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    episodeInfiniteListQueryOptions(),
-  );
+  const { data, error, isFetching, hasNextPage, fetchNextPage } =
+    useInfiniteQuery(episodeInfiniteListQueryOptions());
 
   if (!data) {
     return null;
@@ -29,8 +28,9 @@ export function EpisodeInfiniteList() {
         })}
       </List>
       <InfiniteScrollSentry
-        loading={isFetching}
         hasNextPage={hasNextPage}
+        loading={isFetching}
+        error={error}
         onLoadMore={fetchNextPage}
       />
     </>
