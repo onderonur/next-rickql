@@ -3,7 +3,7 @@ import { useFragment } from '@/core/gql';
 import { graphql } from '@/core/gql/gql';
 import { NextLink } from '@/core/routing/components/next-link';
 import { Card, CardImage, CardTitle } from '@/core/ui/components/card';
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 
 // https://the-guild.dev/blog/unleash-the-power-of-fragments-with-graphql-codegen
 const CharacterCard_CharacterFragment = graphql(/* GraphQL */ `

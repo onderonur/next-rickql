@@ -5,8 +5,9 @@ import { Card, CardImage, CardTitle } from '@/core/ui/components/card';
 import charactersPic from '@/features/images/characters.jpg';
 import episodesPic from '@/features/images/episodes.jpg';
 import locationsPic from '@/features/images/locations.jpg';
+import type { Metadata } from 'next';
 
-export const metadata = getMetadata({
+export const metadata: Metadata = getMetadata({
   title: 'Home',
   pathname: '/',
 });
@@ -39,7 +40,7 @@ export default function Home() {
               className="fancy-border delay max-w-[21rem]"
             >
               <Card>
-                <CardImage src={link.imageSrc} alt={link.title} priority />
+                <CardImage src={link.imageSrc} alt={link.title} preload />
                 <CardTitle asChild className="text-xl">
                   <h2>{link.title}</h2>
                 </CardTitle>
