@@ -3,7 +3,7 @@ import { graphql, useFragment } from '@/core/gql';
 import { Card, CardImage, CardTitle } from '@/core/ui/components/card';
 import { CharacterEpisodeSummary } from '@/features/characters/components/character-episodes-summary';
 import { CharacterSpecs } from '@/features/characters/components/character-specs';
-import { unstable_ViewTransition as ViewTransition } from 'react';
+import { ViewTransition } from 'react';
 
 const CharacterDetails_CharacterFragment = graphql(/* GraphQL */ `
   fragment CharacterDetails_CharacterFragment on Character {
@@ -33,7 +33,7 @@ export function CharacterDetails({ character }: CharacterDetailsProps) {
         <CardImage
           src={characterDetails.image as string}
           alt={characterDetails.name as string}
-          priority
+          preload
           width={300}
           height={300}
         />

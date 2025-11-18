@@ -48,7 +48,7 @@ export function CardDescription(props: CardDescriptionProps) {
 
 type CardImageProps = Pick<
   ImageProps,
-  'src' | 'alt' | 'width' | 'height' | 'priority'
+  'src' | 'alt' | 'width' | 'height' | 'preload'
 >;
 
 export function CardImage({ alt, ...rest }: CardImageProps) {
