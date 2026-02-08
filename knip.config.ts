@@ -1,7 +1,7 @@
 import type { KnipConfig } from 'knip';
 
 const config: KnipConfig = {
-  ignore: ['src/core/gql/**'],
+  ignore: ['src/generated/gql/**'],
 };
 
 export default config;

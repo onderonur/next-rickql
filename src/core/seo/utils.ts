@@ -1,5 +1,5 @@
-import type { Maybe } from '@/core/gql/graphql';
 import { APP_DESCRIPTION, APP_TITLE, APP_URL } from '@/core/shared/utils';
+import type { Maybe } from '@/generated/gql/graphql';
 import type { Metadata } from 'next';
 
 export function getMetadata({

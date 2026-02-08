@@ -1,5 +1,5 @@
-import type { Maybe } from '@/core/gql/graphql';
 import { Loading } from '@/core/ui/components/loading';
+import type { Maybe } from '@/generated/gql/graphql';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { Alert } from './alert';
 

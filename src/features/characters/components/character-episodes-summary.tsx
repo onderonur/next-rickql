@@ -1,9 +1,9 @@
-import type { FragmentType } from '@/core/gql';
-import { graphql, useFragment } from '@/core/gql';
+import type { FragmentType } from '@/generated/gql';
+import { graphql, useFragment } from '@/generated/gql';
 import type {
   CharacterEpisodeSummary_EpisodeFragmentFragment,
   Maybe,
-} from '@/core/gql/graphql';
+} from '@/generated/gql/graphql';
 
 const CharacterEpisodeSummary_EpisodeFragment = graphql(/* GraphQL */ `
   fragment CharacterEpisodeSummary_EpisodeFragment on Episode {

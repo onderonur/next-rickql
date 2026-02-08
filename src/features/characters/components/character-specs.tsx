@@ -1,7 +1,7 @@
-import type { FragmentType } from '@/core/gql';
-import { graphql, useFragment } from '@/core/gql';
 import { NextLink } from '@/core/routing/components/next-link';
 import { Specs } from '@/core/ui/components/specs';
+import type { FragmentType } from '@/generated/gql';
+import { graphql, useFragment } from '@/generated/gql';
 
 const CharacterSpecs_CharacterFragment = graphql(/* GraphQL */ `
   fragment CharacterSpecs_CharacterFragment on Character {

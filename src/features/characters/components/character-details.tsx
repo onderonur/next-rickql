@@ -1,8 +1,8 @@
-import type { FragmentType } from '@/core/gql';
-import { graphql, useFragment } from '@/core/gql';
 import { Card, CardImage, CardTitle } from '@/core/ui/components/card';
 import { CharacterEpisodeSummary } from '@/features/characters/components/character-episodes-summary';
 import { CharacterSpecs } from '@/features/characters/components/character-specs';
+import type { FragmentType } from '@/generated/gql';
+import { graphql, useFragment } from '@/generated/gql';
 import { ViewTransition } from 'react';
 
 const CharacterDetails_CharacterFragment = graphql(/* GraphQL */ `

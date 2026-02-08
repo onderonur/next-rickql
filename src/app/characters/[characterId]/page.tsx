@@ -1,4 +1,3 @@
-import { graphql } from '@/core/gql';
 import { getQueryClient } from '@/core/query-client/utils';
 import { getMetadata } from '@/core/seo/utils';
 import { API_URL } from '@/core/shared/utils';
@@ -6,6 +5,7 @@ import { Card, CardTitle } from '@/core/ui/components/card';
 import { List } from '@/core/ui/components/list';
 import { CharacterDetails } from '@/features/characters/components/character-details';
 import { EpisodeListItem } from '@/features/episodes/components/episode-list-item';
+import { graphql } from '@/generated/gql';
 import request from 'graphql-request';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';

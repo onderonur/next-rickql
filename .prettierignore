@@ -1,2 +1,2 @@
 pnpm-lock.yaml
-src/core/gql/*
+src/generated

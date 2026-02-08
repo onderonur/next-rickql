@@ -5,10 +5,10 @@ const config: CodegenConfig = {
   schema: 'https://rickandmortyapi.com/graphql',
   documents: ['src/**/*.{ts,tsx}'],
   generates: {
-    './src/core/gql/': {
+    './src/generated/gql/': {
       preset: 'client',
     },
-    './src/core/gql/introspection.json': {
+    './src/generated/gql/introspection.json': {
       plugins: ['introspection'],
       config: {
         minify: true,

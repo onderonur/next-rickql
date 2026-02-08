@@ -23,8 +23,8 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
-    // Ignore generated GraphQL files
-    'src/core/gql',
+    // Ignore generated files
+    'src/generated/**',
   ]),
 ]);
 
