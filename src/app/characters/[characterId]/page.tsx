@@ -80,7 +80,7 @@ export default async function CharacterPage(props: CharacterPageProps) {
   const { character } = await getPageData(characterId);
 
   return (
-    <main className="grid gap-2 md:grid-cols-[theme(spacing.80)_1fr]">
+    <main className="grid gap-2 md:grid-cols-[--spacing(80)_1fr]">
       <div className="mx-auto max-w-xs">
         <CharacterDetails character={character} />
       </div>

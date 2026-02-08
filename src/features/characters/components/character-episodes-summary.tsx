@@ -47,7 +47,7 @@ export function CharacterEpisodeSummary({
   }
 
   return (
-    <div className="font-semibold text-muted-foreground">
+    <div className="text-muted-foreground font-semibold">
       <p>Episodes: {episodesFragment.length}</p>
       <p>
         {firstEpisode &&

@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       className={twJoin(
-        'dark [color-scheme:dark]',
+        'dark scheme-dark',
         // fluid font-size:
         // 12px - 16px for 320px - 1024px viewport
         'text-[clamp(0.75rem,0.636rem+0.57vw,1rem)]',

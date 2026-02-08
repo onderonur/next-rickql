@@ -17,7 +17,7 @@ export function List({
         'flex',
         direction === 'horizontal'
           ? 'gap-3'
-          : 'flex-col [&>li:last-child]:border-none [&>li]:border-b',
+          : '*:last-child:border-none flex-col *:border-b',
         className,
       )}
       {...rest}
@@ -30,7 +30,7 @@ type ListItemProps = {
 };
 
 export function ListItem({ children }: ListItemProps) {
-  return <li className="[&>*]:block [&>*]:py-4">{children}</li>;
+  return <li className="*:block *:py-4">{children}</li>;
 }
 
 type ListItemTitleProps = {
@@ -48,7 +48,7 @@ type ListItemSubtitleProps = {
 export function ListItemSubtitle(props: ListItemSubtitleProps) {
   return (
     <div
-      className="mt-1 text-sm font-semibold text-muted-foreground"
+      className="text-muted-foreground mt-1 text-sm font-semibold"
       {...props}
     />
   );

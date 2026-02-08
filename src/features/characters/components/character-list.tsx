@@ -3,5 +3,5 @@ type CharacterListProps = {
 };
 
 export function CharacterList({ children }: CharacterListProps) {
-  return <ul className="grid gap-2 grid-cols-autofill-48">{children}</ul>;
+  return <ul className="grid-cols-autofill-48 grid gap-2">{children}</ul>;
 }

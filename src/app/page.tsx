@@ -22,10 +22,10 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-12 py-24">
       <div className="flex flex-col gap-4 text-center">
-        <h1 className="text-7xl font-black text-primary sm:text-8xl">
+        <h1 className="text-primary text-7xl font-black sm:text-8xl">
           {APP_TITLE}
         </h1>
-        <p className="text-xl font-semibold text-muted-foreground sm:text-2xl">
+        <p className="text-muted-foreground text-xl font-semibold sm:text-2xl">
           {APP_TITLE} is a web app built by using Next.js, GraphQL & TanStack
           Query.
         </p>
@@ -37,7 +37,7 @@ export default function Home() {
             <NextLink
               key={link.href}
               href={link.href}
-              className="fancy-border delay max-w-[21rem]"
+              className="fancy-border delay max-w-84"
             >
               <Card>
                 <CardImage src={link.imageSrc} alt={link.title} preload />

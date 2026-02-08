@@ -1,5 +1,3 @@
-
-
 // For VSCode GraphQL: Language Feature Support extension:
 // https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql
 const config = {
@@ -7,12 +5,10 @@ const config = {
   documents: ['src/**/*.{ts,tsx}'],
 };
 
-
 // Or without introspection:
 // const config = {
 //   schema: 'https://rickandmortyapi.com/graphql',
 //   documents: ['src/**/*.{ts,tsx}'],
 // };
 
-
-export default config
+export default config;

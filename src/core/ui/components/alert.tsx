@@ -4,7 +4,7 @@ type AlertProps = {
 
 export function Alert({ children }: AlertProps) {
   return (
-    <div className="rounded border border-error bg-muted px-4 py-2 text-error">
+    <div className="border-error bg-muted text-error rounded-sm border px-4 py-2">
       {children}
     </div>
   );

@@ -45,7 +45,7 @@ export default async function CharactersPage(props: CharactersPageProps) {
             {keyword && (
               <p className="text-muted-foreground">
                 Search results for{' '}
-                <span className="font-semibold text-foreground">
+                <span className="text-foreground font-semibold">
                   &quot;{keyword}&quot;
                 </span>
               </p>

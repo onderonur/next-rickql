@@ -31,7 +31,7 @@ export function Dialog({ ref, title, children }: DialogProps) {
   return (
     <dialog
       ref={dialogRef}
-      className="w-full rounded-3xl border p-6 shadow backdrop:bg-black/30 backdrop:backdrop-blur-md"
+      className="w-full rounded-3xl border p-6 shadow-sm backdrop:bg-black/30 backdrop:backdrop-blur-md"
     >
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">

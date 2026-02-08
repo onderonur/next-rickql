@@ -5,7 +5,7 @@ import { MobileNavMenu, NavMenu } from './nav-menu';
 
 function LayoutHeader() {
   return (
-    <header className="sticky top-0 z-50 flex min-h-16 items-center gap-4 border-b bg-background/60 px-4 backdrop-blur">
+    <header className="bg-background/60 sticky top-0 z-50 flex min-h-16 items-center gap-4 border-b px-4 backdrop-blur-sm">
       <NextLink href="/" className="text-xl font-black">
         {APP_TITLE}
       </NextLink>
@@ -26,7 +26,7 @@ function LayoutHeader() {
 
 function LayoutFooter() {
   return (
-    <footer className="sticky bottom-0 grid min-h-14 place-content-center border-t bg-background/60 px-6 backdrop-blur">
+    <footer className="bg-background/60 sticky bottom-0 grid min-h-14 place-content-center border-t px-6 backdrop-blur-sm">
       {APP_TITLE}
     </footer>
   );
@@ -38,14 +38,16 @@ type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="mx-auto grid min-h-screen max-w-screen-xl grid-rows-[auto_1fr_auto] *:min-w-0 xl:border-x">
+    <div className="mx-auto grid min-h-screen max-w-(--breakpoint-xl) grid-rows-[auto_1fr_auto] *:min-w-0 xl:border-x">
       <LayoutHeader />
       <div className="bg-pattern">
-        <div className="h-full bg-background/60">
+        <div className="bg-background/60 h-full">
           <div className="fixed inset-0 -z-10 grid place-content-center">
-            <div className="size-[32rem] rounded-full bg-primary/60 blur-[16rem]" />
+            <div className="bg-primary/60 size-128 rounded-full blur-[16rem]" />
           </div>
-          <div className="mx-auto max-w-screen-md p-2 sm:p-6">{children}</div>
+          <div className="mx-auto max-w-(--breakpoint-md) p-2 sm:p-6">
+            {children}
+          </div>
         </div>
       </div>
       <LayoutFooter />

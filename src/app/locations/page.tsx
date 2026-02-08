@@ -20,7 +20,7 @@ export default async function LocationsPage() {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <main>
-        <Card className="mx-auto max-w-screen-md">
+        <Card className="mx-auto max-w-(--breakpoint-md)">
           <CardTitle className="text-2xl font-semibold">Locations</CardTitle>
           <LocationInfiniteList />
         </Card>

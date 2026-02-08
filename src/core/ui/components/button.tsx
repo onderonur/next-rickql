@@ -11,7 +11,7 @@ export function Button({
   return (
     <button
       className={twMerge(
-        'rounded-lg border bg-secondary px-3 py-2 font-semibold text-secondary-foreground shadow',
+        'bg-secondary text-secondary-foreground rounded-lg border px-3 py-2 font-semibold shadow-sm',
         'disabled:opacity-80',
         className,
       )}

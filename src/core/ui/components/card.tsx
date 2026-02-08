@@ -14,7 +14,7 @@ export function Card({ className, ...rest }: CardProps) {
     <div
       {...rest}
       className={twMerge(
-        'flex flex-col gap-4 rounded-lg border bg-card p-6 shadow',
+        'bg-card flex flex-col gap-4 rounded-lg border p-6 shadow-sm',
         className,
       )}
     />
@@ -42,7 +42,7 @@ type CardDescriptionProps = {
 
 export function CardDescription(props: CardDescriptionProps) {
   return (
-    <p className="text-lg font-semibold text-muted-foreground" {...props} />
+    <p className="text-muted-foreground text-lg font-semibold" {...props} />
   );
 }
 
@@ -53,6 +53,6 @@ type CardImageProps = Pick<
 
 export function CardImage({ alt, ...rest }: CardImageProps) {
   return (
-    <Image className={'w-full rounded object-cover'} alt={alt} {...rest} />
+    <Image className={'w-full rounded-sm object-cover'} alt={alt} {...rest} />
   );
 }
