@@ -43,19 +43,19 @@ export function MobileNavMenu() {
 
   return (
     <div className="sm:hidden">
-      <Button
-        aria-label="Open navigation menu"
-        onClick={() => {
-          dialogRef.current?.showModal();
-        }}
-      >
-        <RxHamburgerMenu />
-      </Button>
       {/* Since we use `useSearchParams` in `Dialog` under the hood,
       we need to wrap it with `Suspense` for statically rendered pages.
       https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
       https://nextjs.org/docs/app/api-reference/functions/use-search-params#static-rendering */}
       <Suspense>
+        <Button
+          aria-label="Open navigation menu"
+          onClick={() => {
+            dialogRef.current?.showModal();
+          }}
+        >
+          <RxHamburgerMenu />
+        </Button>
         <Dialog ref={dialogRef} title="Menu">
           <nav>
             <List>

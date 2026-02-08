@@ -1,46 +1,21 @@
 import { getQueryClient } from '@/core/query-client/utils';
 import { getMetadata } from '@/core/seo/utils';
-import { API_URL } from '@/core/shared/utils';
 import { Card, CardTitle } from '@/core/ui/components/card';
 import { Specs } from '@/core/ui/components/specs';
 import { CharacterCard } from '@/features/characters/components/character-card';
 import { CharacterList } from '@/features/characters/components/character-list';
-import { graphql } from '@/generated/gql';
-import request from 'graphql-request';
+import { locationDetailQueryOptions } from '@/features/locations/queries';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-const LocationPage_Query = graphql(/* GraphQL */ `
-  query LocationPage_Query($id: ID!) {
-    location(id: $id) {
-      id
-      name
-      type
-      dimension
-      residents {
-        id
-        ...CharacterCard_CharacterFragment
-      }
-    }
-  }
-`);
 
 async function getPageData(locationId: string) {
   const queryClient = getQueryClient();
 
-  const data = await queryClient.fetchQuery({
-    queryKey: ['location', locationId],
-    queryFn: () =>
-      request(API_URL, LocationPage_Query, {
-        id: locationId,
-      }),
-  });
+  const { location } = await queryClient.fetchQuery(
+    locationDetailQueryOptions({ id: locationId }),
+  );
 
-  const { location } = data;
-
-  if (!location) {
-    notFound();
-  }
+  if (!location) notFound();
 
   return { location };
 }

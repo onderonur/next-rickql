@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "codequality": "pnpm format && pnpm lint && pnpm typecheck",
-    "codequality:fix": "pnpm format:fix && pnpm lint:fix && pnpm typecheck",
+    "codequality": "npm run format && npm run lint && npm run typecheck",
+    "codequality:fix": "npm run format:fix && npm run lint:fix && npm run typecheck",
     "dev": "next dev",
     "dev:all": "npm-run-all --parallel dev gql-codegen:watch",
     "dev:all:about": "echo 'https://the-guild.dev/graphql/codegen/docs/getting-started/development-workflow#watch-mode'",
@@ -63,5 +63,5 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0"
   },
-  "packageManager": "pnpm@10.29.1"
+  "packageManager": "npm@11.7.0"
 }

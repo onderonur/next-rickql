@@ -3,7 +3,7 @@
 // So, we created a separate file for the query.
 import { API_URL, FIRST_PAGE } from '@/core/shared/utils';
 import { graphql } from '@/generated/gql';
-import { infiniteQueryOptions } from '@tanstack/react-query';
+import { infiniteQueryOptions, queryOptions } from '@tanstack/react-query';
 import request from 'graphql-request';
 
 const EpisodeInfiniteList_Query = graphql(/* GraphQL */ `
@@ -20,6 +20,21 @@ const EpisodeInfiniteList_Query = graphql(/* GraphQL */ `
   }
 `);
 
+const EpisodeDetail_Query = graphql(/* GraphQL */ `
+  query EpisodeDetail_Query($id: ID!) {
+    episode(id: $id) {
+      id
+      name
+      episode
+      air_date
+      characters {
+        id
+        ...CharacterCard_CharacterFragment
+      }
+    }
+  }
+`);
+
 export function episodeInfiniteListQueryOptions() {
   return infiniteQueryOptions({
     initialPageParam: FIRST_PAGE,
@@ -29,5 +44,15 @@ export function episodeInfiniteListQueryOptions() {
         page: pageParam,
       }),
     getNextPageParam: (lastPage) => lastPage.episodes?.info?.next,
+  });
+}
+
+export function episodeDetailQueryOptions({ id }: { id: string }) {
+  return queryOptions({
+    queryKey: ['episode', id],
+    queryFn: () =>
+      request(API_URL, EpisodeDetail_Query, {
+        id,
+      }),
   });
 }

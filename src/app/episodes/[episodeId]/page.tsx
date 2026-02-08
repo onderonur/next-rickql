@@ -1,45 +1,20 @@
 import { getQueryClient } from '@/core/query-client/utils';
 import { getMetadata } from '@/core/seo/utils';
-import { API_URL } from '@/core/shared/utils';
 import { Card, CardDescription, CardTitle } from '@/core/ui/components/card';
 import { CharacterCard } from '@/features/characters/components/character-card';
 import { CharacterList } from '@/features/characters/components/character-list';
-import { graphql } from '@/generated/gql';
-import request from 'graphql-request';
+import { episodeDetailQueryOptions } from '@/features/episodes/queries';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-const EpisodePage_Query = graphql(/* GraphQL */ `
-  query EpisodePage_Query($id: ID!) {
-    episode(id: $id) {
-      id
-      name
-      episode
-      air_date
-      characters {
-        id
-        ...CharacterCard_CharacterFragment
-      }
-    }
-  }
-`);
 
 async function getPageData(episodeId: string) {
   const queryClient = getQueryClient();
 
-  const data = await queryClient.fetchQuery({
-    queryKey: ['episode', episodeId],
-    queryFn: () =>
-      request(API_URL, EpisodePage_Query, {
-        id: episodeId,
-      }),
-  });
+  const { episode } = await queryClient.fetchQuery(
+    episodeDetailQueryOptions({ id: episodeId }),
+  );
 
-  const { episode } = data;
-
-  if (!episode) {
-    notFound();
-  }
+  if (!episode) notFound();
 
   return { episode };
 }

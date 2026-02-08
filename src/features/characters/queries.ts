@@ -4,7 +4,7 @@
 import { API_URL, FIRST_PAGE } from '@/core/shared/utils';
 import { graphql } from '@/generated/gql';
 import type { Maybe } from '@/generated/gql/graphql';
-import { infiniteQueryOptions } from '@tanstack/react-query';
+import { infiniteQueryOptions, queryOptions } from '@tanstack/react-query';
 import request from 'graphql-request';
 
 const CharacterInfiniteList_Query = graphql(/* GraphQL */ `
@@ -16,6 +16,21 @@ const CharacterInfiniteList_Query = graphql(/* GraphQL */ `
       results {
         id
         ...CharacterCard_CharacterFragment
+      }
+    }
+  }
+`);
+
+const CharacterDetail_Query = graphql(/* GraphQL */ `
+  query CharacterDetail_Query($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      image
+      ...CharacterDetails_CharacterFragment
+      episode {
+        id
+        ...EpisodeListItem_EpisodeFragment
       }
     }
   }
@@ -36,5 +51,15 @@ export function characterInfiniteListQueryOptions({
         name: keyword,
       }),
     getNextPageParam: (lastPage) => lastPage.characters?.info?.next,
+  });
+}
+
+export function characterDetailQueryOptions({ id }: { id: string }) {
+  return queryOptions({
+    queryKey: ['character', id],
+    queryFn: () =>
+      request(API_URL, CharacterDetail_Query, {
+        id,
+      }),
   });
 }

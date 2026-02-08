@@ -2,7 +2,8 @@
 import path from 'node:path';
 
 const buildEslintCommand = (filenames) =>
-  `eslint --max-warnings 0 --fix ${filenames
+  // `--no-warn-ignored` suppresses warnings for ignored files (e.g. src/generated) to prevent --max-warnings 0 from failing the commit.
+  `eslint --max-warnings 0 --no-warn-ignored --fix ${filenames
     .map((f) => `"${path.relative(process.cwd(), f)}"`)
     .join(' ')}`;
 
